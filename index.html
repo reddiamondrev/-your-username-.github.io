@@ -45,7 +45,7 @@ header p { color: #ccc; letter-spacing: 3px; }
 }
 
 section {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   padding: 70px 20px;
 }
@@ -59,9 +59,10 @@ section h2 {
   margin-bottom: 40px;
 }
 
+/* SERVICES */
 .services {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap: 25px;
 }
 
@@ -81,41 +82,44 @@ section h2 {
   padding-left: 18px;
 }
 
+/* PACKAGES */
+.packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 30px;
+}
+
+.package {
+  background: #111;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.package img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.package-content {
+  padding: 25px;
+}
+
+.package h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 3px;
+}
+
+.package ul {
+  color: #aaa;
+  padding-left: 18px;
+}
+
 footer {
   background: #000;
   text-align: center;
   padding: 40px 20px;
   color: #777;
-}
-
-/* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-}
-
-.modal-content {
-  background: #111;
-  max-width: 420px;
-  margin: 8% auto;
-  padding: 30px;
-  border-radius: 14px;
-}
-
-.modal input, .modal select, .modal textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 6px;
-  border: none;
-}
-
-.close {
-  float: right;
-  font-size: 22px;
-  cursor: pointer;
 }
 </style>
 </head>
@@ -128,14 +132,13 @@ footer {
   <p>LUXURY MOBILE CAR & TRUCK DETAILING</p>
 
   <a href="tel:4696008348" class="btn">CALL / TEXT</a>
-  <span class="btn" onclick="openModal()">BOOK ONLINE</span>
+  <a href="mailto:reddiamondrev@gmail.com" class="btn">EMAIL US</a>
 </header>
 
 <section>
   <h2>SERVICES</h2>
 
   <div class="services">
-
     <div class="service">
       <h3>INTERIOR DETAILING</h3>
       <ul>
@@ -154,29 +157,48 @@ footer {
         <li>Wax or sealant</li>
       </ul>
     </div>
+  </div>
+</section>
 
-    <div class="service">
-      <h3>PAINT CORRECTION</h3>
-      <ul>
-        <li>Swirl removal</li>
-        <li>Gloss enhancement</li>
-      </ul>
+<section>
+  <h2>DETAILING PACKAGES</h2>
+
+  <div class="packages">
+
+    <div class="package">
+      <img src="package-basic.jpg" alt="Basic Detail Package">
+      <div class="package-content">
+        <h3>BASIC REFRESH</h3>
+        <ul>
+          <li>Exterior wash</li>
+          <li>Interior vacuum</li>
+          <li>Windows cleaned</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="service">
-      <h3>CERAMIC COATING</h3>
-      <ul>
-        <li>Long-term protection</li>
-        <li>Extreme shine</li>
-      </ul>
+    <div class="package">
+      <img src="package-premium.jpg" alt="Premium Detail Package">
+      <div class="package-content">
+        <h3>PREMIUM DETAIL</h3>
+        <ul>
+          <li>Full interior detail</li>
+          <li>Hand wash & wax</li>
+          <li>Tire shine</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="service">
-      <h3>HEADLIGHT RESTORATION</h3>
-      <ul>
-        <li>Oxidation removal</li>
-        <li>UV sealant</li>
-      </ul>
+    <div class="package">
+      <img src="package-full.jpg" alt="Full Detail Package">
+      <div class="package-content">
+        <h3>FULL REVIVAL</h3>
+        <ul>
+          <li>Complete interior restoration</li>
+          <li>Exterior detail & protection</li>
+          <li>Showroom finish</li>
+        </ul>
+      </div>
     </div>
 
   </div>
@@ -186,41 +208,6 @@ footer {
   <p>📞 469-600-8348 | ✉️ reddiamondrev@gmail.com</p>
   <p>© 2025 Red Diamond Revival</p>
 </footer>
-
-<!-- BOOKING MODAL -->
-<div class="modal" id="bookingModal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <h3 style="text-align:center;">Request an Appointment</h3>
-
-    <form action="PASTE_YOUR_FORMSPREE_URL_HERE" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-
-      <select name="service" required>
-        <option value="">Select Service</option>
-        <option>Interior Detailing</option>
-        <option>Exterior Detailing</option>
-        <option>Paint Correction</option>
-        <option>Ceramic Coating</option>
-        <option>Headlight Restoration</option>
-      </select>
-
-      <input type="text" name="date" placeholder="Preferred Date & Time" required>
-
-      <button class="btn" type="submit" style="width:100%;">SEND REQUEST</button>
-    </form>
-  </div>
-</div>
-
-<script>
-function openModal() {
-  document.getElementById("bookingModal").style.display = "block";
-}
-function closeModal() {
-  document.getElementById("bookingModal").style.display = "none";
-}
-</script>
 
 </body>
 </html>
