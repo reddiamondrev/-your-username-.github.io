@@ -6,11 +6,9 @@
 
 <title>Red Diamond Revival | Luxury Mobile Car Detailing</title>
 
-<!-- FONT MATCHING LOGO STYLE -->
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-/* ---------- GLOBAL ---------- */
 body {
   margin: 0;
   background: radial-gradient(circle at top, #2b0000, #000);
@@ -18,34 +16,23 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { text-decoration: none; color: inherit; }
 
-/* ---------- HEADER ---------- */
 header {
   text-align: center;
   padding: 60px 20px 40px;
 }
 
-header img {
-  max-width: 320px;
-}
+header img { max-width: 320px; }
 
 header h1 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3.8rem;
   letter-spacing: 5px;
-  margin: 20px 0 10px;
 }
 
-header p {
-  letter-spacing: 3px;
-  color: #ccc;
-}
+header p { color: #ccc; letter-spacing: 3px; }
 
-/* ---------- BUTTONS ---------- */
 .btn {
   display: inline-block;
   margin: 15px 10px;
@@ -53,31 +40,12 @@ header p {
   border-radius: 40px;
   background: linear-gradient(135deg, #b30000, #ff1a1a);
   font-weight: bold;
-  letter-spacing: 1px;
   box-shadow: 0 0 15px rgba(255,0,0,0.3);
+  cursor: pointer;
 }
 
-/* ---------- HERO ---------- */
-.hero {
-  background: url('hero.jpg') center/cover no-repeat;
-  height: 65vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  letter-spacing: 6px;
-  padding: 25px 45px;
-  border: 2px solid #b30000;
-  background: rgba(0,0,0,0.65);
-}
-
-/* ---------- SECTIONS ---------- */
 section {
-  max-width: 1200px;
+  max-width: 900px;
   margin: auto;
   padding: 70px 20px;
 }
@@ -88,13 +56,12 @@ section h2 {
   font-size: 2.8rem;
   letter-spacing: 5px;
   color: #b30000;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
-/* ---------- SERVICES ---------- */
 .services {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
   gap: 25px;
 }
 
@@ -102,68 +69,66 @@ section h2 {
   background: #111;
   padding: 30px;
   border-radius: 14px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.service:hover {
-  box-shadow: 0 0 25px rgba(255,0,0,0.3);
 }
 
 .service h3 {
   font-family: 'Bebas Neue', sans-serif;
   letter-spacing: 3px;
-  margin-bottom: 10px;
 }
 
-.service p {
+.service ul {
   color: #aaa;
+  padding-left: 18px;
 }
 
-/* ---------- GALLERIES ---------- */
-.gallery {
-  display: none;
-  margin-top: 15px;
-}
-
-.gallery img {
-  width: 100%;
-  margin-top: 10px;
-  border-radius: 10px;
-}
-
-/* ---------- FOOTER ---------- */
 footer {
   background: #000;
   text-align: center;
-  padding: 50px 20px;
+  padding: 40px 20px;
   color: #777;
 }
 
-/* ---------- MOBILE ---------- */
-@media(max-width: 600px) {
-  header h1 { font-size: 3rem; }
-  .hero h2 { font-size: 2.2rem; }
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  background: #111;
+  max-width: 420px;
+  margin: 8% auto;
+  padding: 30px;
+  border-radius: 14px;
+}
+
+.modal input, .modal select, .modal textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+}
+
+.close {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
 }
 </style>
-
-<script>
-function toggleGallery(id) {
-  const g = document.getElementById(id);
-  g.style.display = g.style.display === "block" ? "none" : "block";
-}
-</script>
-
 </head>
+
 <body>
 
 <header>
-  <img src="8B832373-CBD7-4886-9507-F86A08DA8E15.png" 
+  <img src="logo.png" alt="Red Diamond Revival Logo">
   <h1>RED DIAMOND REVIVAL</h1>
   <p>LUXURY MOBILE CAR & TRUCK DETAILING</p>
 
   <a href="tel:4696008348" class="btn">CALL / TEXT</a>
-  <a href="#" class="btn">BOOK ONLINE</a>
+  <span class="btn" onclick="openModal()">BOOK ONLINE</span>
 </header>
 
 <section>
@@ -171,62 +136,91 @@ function toggleGallery(id) {
 
   <div class="services">
 
-    <div class="service" onclick="toggleGallery('interior')">
+    <div class="service">
       <h3>INTERIOR DETAILING</h3>
-      <p>Click to view work</p>
-      <div class="gallery" id="interior">
-        <img src="interior1.jpg">
-        <img src="interior2.jpg">
-      </div>
+      <ul>
+        <li>Deep vacuum</li>
+        <li>Steam cleaning</li>
+        <li>Leather & fabric treatment</li>
+        <li>Odor removal</li>
+      </ul>
     </div>
 
-    <div class="service" onclick="toggleGallery('exterior')">
+    <div class="service">
       <h3>EXTERIOR DETAILING</h3>
-      <p>Click to view work</p>
-      <div class="gallery" id="exterior">
-        <img src="exterior1.jpg">
-        <img src="exterior2.jpg">
-      </div>
+      <ul>
+        <li>Hand wash & dry</li>
+        <li>Wheel & tire cleaning</li>
+        <li>Wax or sealant</li>
+      </ul>
     </div>
 
-    <div class="service" onclick="toggleGallery('paint')">
+    <div class="service">
       <h3>PAINT CORRECTION</h3>
-      <p>Click to view work</p>
-      <div class="gallery" id="paint">
-        <img src="paint1.jpg">
-      </div>
+      <ul>
+        <li>Swirl removal</li>
+        <li>Gloss enhancement</li>
+      </ul>
     </div>
 
-    <div class="service" onclick="toggleGallery('ceramic')">
+    <div class="service">
       <h3>CERAMIC COATING</h3>
-      <p>Click to view work</p>
-      <div class="gallery" id="ceramic">
-        <img src="ceramic1.jpg">
-      </div>
+      <ul>
+        <li>Long-term protection</li>
+        <li>Extreme shine</li>
+      </ul>
     </div>
 
-    <div class="service" onclick="toggleGallery('headlight')">
+    <div class="service">
       <h3>HEADLIGHT RESTORATION</h3>
-      <p>Click to view work</p>
-      <div class="gallery" id="headlight">
-        <img src="headlight1.jpg">
-      </div>
+      <ul>
+        <li>Oxidation removal</li>
+        <li>UV sealant</li>
+      </ul>
     </div>
 
   </div>
-</section>
-
-<section>
-  <h2>SERVICE AREA</h2>
-  <p style="text-align:center; color:#ccc; letter-spacing:1px;">
-    Proudly serving <strong>Kaufman, TX</strong> and surrounding areas
-  </p>
 </section>
 
 <footer>
   <p>📞 469-600-8348 | ✉️ reddiamondrev@gmail.com</p>
   <p>© 2025 Red Diamond Revival</p>
 </footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 style="text-align:center;">Request an Appointment</h3>
+
+    <form action="PASTE_YOUR_FORMSPREE_URL_HERE" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+
+      <select name="service" required>
+        <option value="">Select Service</option>
+        <option>Interior Detailing</option>
+        <option>Exterior Detailing</option>
+        <option>Paint Correction</option>
+        <option>Ceramic Coating</option>
+        <option>Headlight Restoration</option>
+      </select>
+
+      <input type="text" name="date" placeholder="Preferred Date & Time" required>
+
+      <button class="btn" type="submit" style="width:100%;">SEND REQUEST</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById("bookingModal").style.display = "block";
+}
+function closeModal() {
+  document.getElementById("bookingModal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
